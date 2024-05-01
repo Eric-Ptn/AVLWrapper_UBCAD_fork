@@ -1,7 +1,7 @@
 from abc import ABC
 from collections import defaultdict, namedtuple
 from dataclasses import dataclass, field
-from enum import Enum, IntEnum, StrEnum, auto
+from enum import Enum, IntEnum, auto
 import operator
 import os
 import re
@@ -1182,9 +1182,9 @@ class MassItem(ModelInput):
         return mass_str
 
 
-class ModifierType(StrEnum):
-    multiplication = auto()
-    addition = auto()
+class ModifierType(str, Enum):
+    multiplication = 'multiplication'
+    addition = 'addition'
 
 
 @dataclass
