@@ -54,7 +54,8 @@ class FileReader:
 
     @staticmethod
     def get_line_values(data_line):
-        data_list = re.findall(rf"({FLOATING_POINT_PATTERN}|\*+)", data_line)
+        logger.warning(data_line)                                                    # added for debugging
+        data_list = re.findall(rf"({FLOATING_POINT_PATTERN}|\*+)", data_line)        # finds all substring that are either floats or a string of asterisks
         values = []
         raised_warning = False
         for val in data_list:
@@ -358,6 +359,8 @@ class EigenValuesFileReader(GenericReader):
 
 class OutputReader:
     """Reads AVL output files. Type is determined based on file extension"""
+    # establish what the file extension is??
+    # goes to SurfaceFileReader, calls _ForceFileReader
 
     _reader_classes = {
         ".ft": TotalsFileReader,
