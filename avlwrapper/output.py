@@ -54,7 +54,7 @@ class FileReader:
 
     @staticmethod
     def get_line_values(data_line):
-        logger.warning(data_line)                                                    # added for debugging
+        # logger.warning(data_line)                                                    # added for debugging
         data_list = re.findall(rf"({FLOATING_POINT_PATTERN}|\*+)", data_line)        # finds all substring that are either floats or a string of asterisks
         values = []
         raised_warning = False
@@ -122,7 +122,7 @@ class _ForcesFileReader(FileReader):
 
     def parse_table(self, table_lines):
         header = self.extract_header(table_lines)
-        logger.warning(header)
+        # logger.warning(header) # for debugging
         forces_data = dict()
         for line in table_lines[1:]:
             line_data = self.get_line_values(line)
