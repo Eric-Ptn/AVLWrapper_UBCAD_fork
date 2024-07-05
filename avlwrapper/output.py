@@ -122,6 +122,7 @@ class _ForcesFileReader(FileReader):
 
     def parse_table(self, table_lines):
         header = self.extract_header(table_lines)
+        logger.warning(header)
         forces_data = dict()
         for line in table_lines[1:]:
             line_data = self.get_line_values(line)
